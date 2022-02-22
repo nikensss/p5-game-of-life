@@ -1,7 +1,8 @@
 class Cell {
-  constructor(x, y) {
+  constructor(x, y, size) {
     this.x = x;
     this.y = y;
+    this.size = size;
     this.alive = Math.random() < 0.2;
     this.neighbours = {
       tl: null,
@@ -22,7 +23,7 @@ class Cell {
 
   draw() {
     fill(this.alive ? "white" : "black");
-    rect(this.x, this.y, CELL_SIZE, CELL_SIZE);
+    rect(this.x, this.y, this.size, this.size);
   }
 
   isAlive() {
