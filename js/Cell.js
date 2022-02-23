@@ -45,6 +45,12 @@ class Cell {
     this.alive = false;
   }
 
+  lazarus() {
+    for (const neighbour of Object.values(this.neighbours)) {
+      Math.random() < 0.5 ? neighbour.heal() : neighbour.kill();
+    }
+  }
+
   prepareNextState() {
     const neighbours = Object.values(this.neighbours).filter((n) => n);
     const aliveNeighbours = neighbours.filter((n) => n.isAlive()).length;
