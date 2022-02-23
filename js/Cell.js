@@ -29,8 +29,10 @@ class Cell {
   }
 
   draw() {
+    noStroke();
     fill(this.alive ? "white" : "black");
-    rect(this.x, this.y, this.size, this.size);
+    ellipseMode(CORNER);
+    circle(this.x, this.y, this.size, this.size);
   }
 
   isAlive() {
