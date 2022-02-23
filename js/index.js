@@ -18,9 +18,9 @@ function setup() {
 }
 
 function draw() {
-  frameRate(30);
+  frameRate(15);
 
-  background(220);
+  background(0);
   cells.forEach((c) => c.draw());
   cells.forEach((c) => c.prepareNextState());
   cells.forEach((c) => c.updateNextState());
