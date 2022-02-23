@@ -29,9 +29,7 @@ function draw() {
 function mouseClicked() {
   const [x, y] = [mouseX, mouseY];
   const clickedCell = cells.find((c) => c.isAt(x, y));
-  if (!clickedCell) return;
-
-  clickedCell.lazarus();
+  clickedCell?.lazarus();
 }
 
 function findCell(x, y) {
