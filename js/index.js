@@ -26,6 +26,18 @@ function draw() {
   cells.forEach((c) => c.updateNextState());
 }
 
+function mouseClicked() {
+  const [x, y] = [mouseX, mouseY];
+  const clickedCell = cells.find((c) => c.isAt(x, y));
+  if (!clickedCell) return;
+
+  clickedCell.lazarus();
+}
+
+function findCell(x, y) {
+  return cells.find((c) => c.isAt(x, y));
+}
+
 function interconnectCells(cells) {
   console.log("interconnecting...");
 
