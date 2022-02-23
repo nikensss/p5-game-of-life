@@ -2,8 +2,8 @@ const cells = [];
 const CELL_SIZE = 12;
 
 function setup() {
-  const WIDTH = 800;
-  const HEIGHT = 800;
+  const WIDTH = CELL_SIZE * 67;
+  const HEIGHT = CELL_SIZE * 67;
   createCanvas(WIDTH, HEIGHT);
 
   for (let y = 0; y < HEIGHT; y += CELL_SIZE) {
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  frameRate(15);
+  frameRate(12);
 
   background(0);
   cells.forEach((c) => c.draw());
