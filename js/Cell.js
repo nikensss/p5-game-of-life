@@ -46,8 +46,9 @@ class Cell {
   }
 
   lazarus() {
-    for (const neighbour of Object.values(this.neighbours)) {
-      Math.random() < 0.5 ? neighbour.heal() : neighbour.kill();
+    for (const cell of [this, ...Object.values(this.neighbours)]) {
+      if (!cell) continue;
+      Math.random() < 0.5 ? cell.heal() : cell.kill();
     }
   }
 
