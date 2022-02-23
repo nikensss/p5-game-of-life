@@ -21,6 +21,13 @@ class Cell {
     return [this.x, this.y];
   }
 
+  isAt(x, y) {
+    const isAtColumn = x >= this.x && x < this.x + this.size;
+    const isAtRow = y >= this.y && y < this.y + this.size;
+
+    return isAtColumn && isAtRow;
+  }
+
   draw() {
     fill(this.alive ? "white" : "black");
     rect(this.x, this.y, this.size, this.size);
