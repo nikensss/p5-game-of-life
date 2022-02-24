@@ -11,13 +11,11 @@ function setup() {
 }
 
 function draw() {
-  frameRate(8);
-
   background(0);
   stats.update();
   stats.show();
 
-  universe.update();
+  if (frameCount % 4 === 0) universe.update();
   universe.draw();
 }
 
