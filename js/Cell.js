@@ -73,9 +73,12 @@ class Cell {
     this.alive = false;
   }
 
-  lazarus() {
+  lazarus(depth = 0) {
+    if (depth > 3) return;
     for (const cell of [this, ...this.getNeighbours()]) {
-      Math.random() < 0.5 ? cell.heal() : cell.kill();
+      if (cell.isAlive()) continue;
+      if (Math.random() < 0.5) cell.heal();
+      if (Math.random() < 0.2) cell.lazarus(depth + 1);
     }
   }
 
