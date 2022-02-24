@@ -47,10 +47,11 @@ class Cell {
   }
 
   getFillColor() {
+    if (this.isAlive()) return 'white';
     if (this.isUnderCursor()) return 'grey';
-    if (this.isCursorAtNeighbour()) return 'lightgrey';
+    if (this.isCursorAtNeighbour()) return 'darkgrey';
 
-    return this.isAlive() ? 'white' : 'black';
+    return 'black';
   }
 
   draw() {
