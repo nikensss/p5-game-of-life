@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  frameRate(12);
+  frameRate(8);
 
   background(0);
   cells.forEach((c) => c.draw());
@@ -27,7 +27,7 @@ function draw() {
 function mouseClicked() {
   const [x, y] = [mouseX, mouseY];
   const clickedCell = cells.find((c) => c.isAt(x, y));
-  clickedCell?.lazarus();
+  clickedCell?.click();
 }
 
 function findCell(x, y) {
