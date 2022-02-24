@@ -3,7 +3,7 @@ class Cell {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.alive = Math.random() < 0.2;
+    this.alive = Math.random() < 0.12345;
     this.neighbours = {
       tl: null,
       t: null,
