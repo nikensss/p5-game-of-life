@@ -14,8 +14,6 @@ class Stats {
     };
 
     this.cells = cells;
-
-    console.log({ current: this.current });
   }
 
   update() {

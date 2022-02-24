@@ -29,15 +29,19 @@ class Cell {
     return isAtColumn && isAtRow;
   }
 
+  isMouseOver() {
+    return this.isAt(mouseX, mouseY);
+  }
+
   click() {
     this.clicked = true;
   }
 
   draw() {
     noStroke();
-    fill(this.alive ? "white" : "black");
+    this.isMouseOver() ? fill("grey") : fill(this.alive ? "white" : "black");
     ellipseMode(CORNER);
-    circle(this.x, this.y, this.size, this.size);
+    circle(this.x, this.y, this.size);
   }
 
   isAlive() {
