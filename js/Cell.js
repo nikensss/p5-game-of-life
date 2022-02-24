@@ -3,7 +3,11 @@ class Cell {
     this.x = x;
     this.y = y;
     this.size = size;
+
     this.alive = Math.random() < 0.12345;
+    this.everAlive = this.alive;
+    this.lastAlive = 0;
+
     this.neighbours = {
       tl: null,
       t: null,
@@ -14,10 +18,9 @@ class Cell {
       b: null,
       br: null
     };
+
     this.clicked = false;
     this.nextState = () => null;
-    this.everAlive = this.alive;
-    this.lastAlive = 0;
   }
 
   getNeighbours() {
