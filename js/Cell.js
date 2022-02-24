@@ -18,6 +18,10 @@ class Cell {
     this.nextState = () => {};
   }
 
+  getNeighbours() {
+    return Object.values(this.neighbours).filter((n) => n instanceof Cell);
+  }
+
   location() {
     return [this.x, this.y];
   }
@@ -29,6 +33,10 @@ class Cell {
     return isAtColumn && isAtRow;
   }
 
+  isAtNeighbour() {
+    return this.getNeighbours().some((n) => n.isMouseOver());
+  }
+
   isMouseOver() {
     return this.isAt(mouseX, mouseY);
   }
@@ -37,9 +45,16 @@ class Cell {
     this.clicked = true;
   }
 
+  getFillColor() {
+    if (this.isMouseOver()) return "grey";
+    if (this.isAtNeighbour()) return "lightgrey";
+
+    return this.isAlive() ? "white" : "black";
+  }
+
   draw() {
     noStroke();
-    this.isMouseOver() ? fill("grey") : fill(this.alive ? "white" : "black");
+    fill(this.getFillColor());
     ellipseMode(CORNER);
     circle(this.x, this.y, this.size);
   }
@@ -57,8 +72,7 @@ class Cell {
   }
 
   lazarus() {
-    for (const cell of [this, ...Object.values(this.neighbours)]) {
-      if (!cell) continue;
+    for (const cell of [this, ...this.getNeighbours()]) {
       Math.random() < 0.5 ? cell.heal() : cell.kill();
     }
   }
