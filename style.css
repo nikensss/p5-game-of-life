@@ -5,10 +5,25 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
 }
 
 canvas {
   cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+.stats > * {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border: 2px solid darkorchid;
+  background-color: cornflowerblue;
+  width: 8rem;
 }

@@ -1,5 +1,6 @@
 const cells = [];
 const CELL_SIZE = 12;
+const stats = new Stats(cells);
 
 function setup() {
   const WIDTH = CELL_SIZE * 67;
@@ -19,6 +20,9 @@ function draw() {
   frameRate(8);
 
   background(0);
+  stats.update();
+  stats.show();
+
   cells.forEach((c) => c.draw());
   cells.forEach((c) => c.prepareNextState());
   cells.forEach((c) => c.updateNextState());
