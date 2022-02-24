@@ -14,6 +14,7 @@ class Cell {
       b: null,
       br: null,
     };
+    this.clicked = false;
     this.nextState = () => {};
   }
 
@@ -26,6 +27,10 @@ class Cell {
     const isAtRow = y >= this.y && y < this.y + this.size;
 
     return isAtColumn && isAtRow;
+  }
+
+  click() {
+    this.clicked = true;
   }
 
   draw() {
@@ -55,6 +60,12 @@ class Cell {
   }
 
   prepareNextState() {
+    if (this.clicked) {
+      this.nextState = () => this.lazarus();
+      this.clicked = false;
+      return;
+    }
+
     const neighbours = Object.values(this.neighbours).filter((n) => n);
     const aliveNeighbours = neighbours.filter((n) => n.isAlive()).length;
 
