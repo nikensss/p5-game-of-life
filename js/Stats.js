@@ -2,22 +2,22 @@ class Stats {
   constructor(cells) {
     this.current = {
       value: 0,
-      ref: document.getElementById("stats-current"),
+      ref: document.getElementById('stats-current')
     };
 
     this.max = {
       value: Number.MIN_SAFE_INTEGER,
-      ref: document.getElementById("stats-max"),
+      ref: document.getElementById('stats-max')
     };
 
     this.min = {
       value: Number.MAX_SAFE_INTEGER,
-      ref: document.getElementById("stats-min"),
+      ref: document.getElementById('stats-min')
     };
 
     this.clicks = {
       value: 0,
-      ref: document.getElementById("stats-clicks"),
+      ref: document.getElementById('stats-clicks')
     };
 
     this.cells = cells;

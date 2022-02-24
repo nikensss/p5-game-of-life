@@ -17,7 +17,7 @@ class Universe {
   }
 
   isCellClicked(x, y) {
-    return typeof this.cells.find((c) => c.isAt(x, y)) !== "undefined";
+    return typeof this.cells.find((c) => c.isAt(x, y)) !== 'undefined';
   }
 
   click(x, y) {

@@ -12,7 +12,7 @@ class Cell {
       r: null,
       bl: null,
       b: null,
-      br: null,
+      br: null
     };
     this.clicked = false;
     this.nextState = () => {};
@@ -47,10 +47,10 @@ class Cell {
   }
 
   getFillColor() {
-    if (this.isUnderCursor()) return "grey";
-    if (this.isCursorAtNeighbour()) return "lightgrey";
+    if (this.isUnderCursor()) return 'grey';
+    if (this.isCursorAtNeighbour()) return 'lightgrey';
 
-    return this.isAlive() ? "white" : "black";
+    return this.isAlive() ? 'white' : 'black';
   }
 
   draw() {
