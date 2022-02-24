@@ -33,11 +33,12 @@ class Cell {
     return isAtColumn && isAtRow;
   }
 
-  isAtNeighbour() {
-    return this.getNeighbours().some((n) => n.isMouseOver());
+  isCursorAtNeighbour() {
+    return this.getNeighbours().some((n) => n.isUnderCursor());
   }
 
-  isMouseOver() {
+  isUnderCursor() {
+    if (mouseX === 0 && mouseY === 0) return false;
     return this.isAt(mouseX, mouseY);
   }
 
@@ -46,8 +47,8 @@ class Cell {
   }
 
   getFillColor() {
-    if (this.isMouseOver()) return "grey";
-    if (this.isAtNeighbour()) return "lightgrey";
+    if (this.isUnderCursor()) return "grey";
+    if (this.isCursorAtNeighbour()) return "lightgrey";
 
     return this.isAlive() ? "white" : "black";
   }
