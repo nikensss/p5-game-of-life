@@ -15,7 +15,9 @@ class Cell {
       br: null
     };
     this.clicked = false;
-    this.nextState = () => {};
+    this.nextState = () => null;
+    this.everAlive = this.alive;
+    this.lastAlive = 0;
   }
 
   getNeighbours() {
@@ -50,8 +52,9 @@ class Cell {
     if (this.isAlive()) return 'white';
     if (this.isUnderCursor()) return 'grey';
     if (this.isCursorAtNeighbour()) return 'darkgrey';
+    if (!this.everAlive) return 'black';
 
-    return 'black';
+    return 255 / (1 + this.lastAlive);
   }
 
   draw() {
@@ -67,6 +70,8 @@ class Cell {
 
   heal() {
     this.alive = true;
+    this.everAlive = true;
+    this.lastAlive = 0;
   }
 
   kill() {
@@ -103,5 +108,6 @@ class Cell {
 
   update() {
     this.nextState();
+    if (!this.isAlive()) this.lastAlive += 1;
   }
 }
