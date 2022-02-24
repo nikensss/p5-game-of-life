@@ -78,7 +78,7 @@ class Cell {
     }
   }
 
-  updateNextState() {
+  update() {
     this.nextState();
   }
 }
