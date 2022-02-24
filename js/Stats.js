@@ -4,13 +4,20 @@ class Stats {
       value: 0,
       ref: document.getElementById("stats-current"),
     };
+
     this.max = {
       value: Number.MIN_SAFE_INTEGER,
       ref: document.getElementById("stats-max"),
     };
+
     this.min = {
       value: Number.MAX_SAFE_INTEGER,
       ref: document.getElementById("stats-min"),
+    };
+
+    this.clicks = {
+      value: 0,
+      ref: document.getElementById("stats-clicks"),
     };
 
     this.cells = cells;
@@ -24,7 +31,12 @@ class Stats {
     this.current.value = count;
   }
 
+  click() {
+    this.clicks.value += 1;
+  }
+
   show() {
+    this.clicks.ref.innerText = `Clicks: ${this.clicks.value}`;
     this.current.ref.innerText = `Current: ${this.current.value}`;
     this.max.ref.innerText = `Max: ${this.max.value}`;
     this.min.ref.innerText = `Min: ${this.min.value}`;

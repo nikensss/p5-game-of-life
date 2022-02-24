@@ -23,4 +23,5 @@ function draw() {
 
 function mouseClicked() {
   universe.click(mouseX, mouseY);
+  if (universe.isCellClicked(mouseX, mouseY)) stats.click();
 }

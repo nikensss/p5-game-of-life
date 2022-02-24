@@ -16,6 +16,10 @@ class Universe {
     this.interconnectCells();
   }
 
+  isCellClicked(x, y) {
+    return typeof this.cells.find((c) => c.isAt(x, y)) !== "undefined";
+  }
+
   click(x, y) {
     this.cells.find((c) => c.isAt(x, y))?.click();
   }
