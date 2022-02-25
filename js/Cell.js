@@ -44,6 +44,7 @@ class Cell {
 
   isUnderCursor() {
     if (mouseX === 0 && mouseY === 0) return false;
+
     return this.isAt(mouseX, mouseY);
   }
 
