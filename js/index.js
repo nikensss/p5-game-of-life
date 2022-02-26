@@ -5,6 +5,7 @@ const stats = new Stats(universe.getCells());
 function setup() {
   const WIDTH = CELL_SIZE * 67;
   const HEIGHT = CELL_SIZE * 67;
+
   createCanvas(WIDTH, HEIGHT);
 
   universe.init(CELL_SIZE, WIDTH, HEIGHT);
@@ -12,10 +13,12 @@ function setup() {
 
 function draw() {
   background(0);
+
   stats.update();
   stats.show();
 
   if (frameCount % 4 === 0) universe.update();
+
   universe.draw();
 }
 
