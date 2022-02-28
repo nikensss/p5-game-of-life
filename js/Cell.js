@@ -54,8 +54,11 @@ class Cell {
 
   getFillColor() {
     if (this.isAlive()) return 'white';
+
     if (this.isUnderCursor()) return 'grey';
+
     if (this.isCursorAtNeighbour()) return 'darkgrey';
+
     if (!this.everAlive) return 'black';
 
     return 255 / (1 + this.lastAlive);
