@@ -24,7 +24,12 @@ class Stats {
   }
 
   update() {
-    if (!this.cells) return;
+    if (!Array.isArray(this.cells)) return;
+    if (this.cells.some((c) => !c instanceof Cell)) {
+      const error = 'Some elements in the "cells" array are not instances of the "Cell" class';
+      throw new TypeError(error);
+    }
+
     const count = this.cells.filter((c) => c.isAlive()).length;
     if (this.max.value < count) this.max.value = count;
     if (this.min.value > count) this.min.value = count;
